@@ -11,4 +11,5 @@ Every day - Daily REACT on scrimba
           SASS
           Typescript
           Parcel
-          implement React/SASS/TS using Parcel in prototype app
+          implement React/SASS/TS using Parcel in prototype app - https://github.com/AlexMercedCoder/Alex-Merced-React-Typescript-Scss-Parcel-Template
+        1430 - Learn about how TS/React interact together - https://www.youtube.com/watch?v=kBRrOVbsv3c&list=PLY6oTPmKnKbaL32w5whB8Dxvy_DgOT8Nd&index=3

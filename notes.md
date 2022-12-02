@@ -1,5 +1,14 @@
 # NOTES
 
+- [NOTES](#notes)
+  - [TODO](#todo)
+  - [Snippets](#snippets)
+    - [a link to download a file](#a-link-to-download-a-file)
+
+## TODO
+
+Make sure we know how to build/export final build with Parcel
+
 ## Snippets
 
 ### a link to download a file
