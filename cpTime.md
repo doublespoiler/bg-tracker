@@ -8,3 +8,7 @@ Every day - Daily REACT on scrimba
           react-spring
         1130 - logo mock
         1330 - research libraries
+          SASS
+          Typescript
+          Parcel
+          implement React/SASS/TS using Parcel in prototype app
