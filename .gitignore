@@ -4,6 +4,7 @@
 */.parcel-cache
 */.cache
 */dist
+.vscode
 .pnp.js
 
 # misc

@@ -1,23 +1,23 @@
-## step 1 - Install Parcel Globally
+## step 1 - Navigate to main folder
 
-```
-npm install -g parcel-bundler
+```sh
+$ cd prototype
 ```
 
 ## step 2 - Install dependencies
 
-```
-npm install
+```sh
+$ npm install
 ```
 
 ## step 3 - Run Dev Environment
 
-```
-npm run dev
+```sh
+$ npm run dev
 ```
 
 ## step 4 - run build for production
 
-```
-npm run build
+```sh
+$ npm run build
 ```

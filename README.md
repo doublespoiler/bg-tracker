@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Board Game Collection App (TBA)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## By Skylan Lew
 
-## Available Scripts
+### Epicodus C#/React Capstone and beyond
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+- Typescript/Javacript
+- React
+- SASS/CSS
+- HTML
+- Parcel
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+An application for tracking personal board game collections, with BGAtlas API integration for board game information.
 
-### `npm test`
+## Setup/Installation Requirements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Requires
 
-### `npm run build`
+- node.js
+- npm
+- git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tested/Developed with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- node.js v16.16.0
+- npm 8.11.0
+- Chrome
+- Firefox
+- Safari iPhone
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Download/Run Instructions
 
-### `npm run eject`
+#### step 1 - download
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+git clone https://github.com/doublespoiler/bg-tracker.git
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### step 1 - Navigate to main folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+cd bg-tracker
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### step 2 - Install dependencies
 
-## Learn More
+```sh
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### step 3 - Run Dev Environment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+npm run dev
+```
 
-### Code Splitting
+#### step 4 - run build for production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```sh
+npm run build
+```
 
-### Analyzing the Bundle Size
+## Known Bugs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- _Any known issues_
+- _should go here_
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[MIT](https://choosealicense.com/licenses/mit/) `[MIT](https://choosealicense.com/licenses/mit/)`
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Copyright (c) 2022 Skylan Lew

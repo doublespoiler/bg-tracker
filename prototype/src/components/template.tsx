@@ -17,6 +17,8 @@ export const Example:React.FC<ExampleProps> = props => {
 
     const myVar:number = 5;
     return (
-        
+      <div>
+        <p>{myVar}</p>
+      </div>
     )
 }
