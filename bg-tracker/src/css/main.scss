@@ -1,0 +1,73 @@
+@use 'reset';
+
+$font-stack: Helvetica, sans-serif;
+$primary-color: #7e33b7;
+$font-color: white;
+$background-color: #1A1B25;
+$accent-color-1: #FF595E;
+$accent-color-2: #1982C4;
+$accent-color-3: #FFCA3A;
+$accent-color-4: #8AC926;
+
+
+body{
+  background-color: $background-color;
+  color: $font-color;
+}
+
+h1 {
+  color: $primary-color;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  margin: 10px auto;
+  justify-content: space-around;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: silver;
+  height: 400px;
+  width: 330px;
+  text-align: center;
+}
+
+.smallcard {
+  height: 350px;
+  width: 300px;
+  background-color: silver;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.navigation {
+display: flex;
+justify-content: space-around;
+}
+
+//moved default Tabler icon properties styling to CSS
+//make sure you remove them from the svg tag itself
+//will probably pull them out of here later and use props instead for theming
+.icon-tabler {
+  width: 44;
+  height: 44;
+  stroke-width: 1.5;
+  stroke: $primary-color;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
