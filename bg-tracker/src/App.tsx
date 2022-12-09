@@ -9,12 +9,14 @@ import Menu from './components/Menu';
 
 function App() {
   return (
+    <>
       <div id="wrapper">
-        <Header />
         <Menu /> {/*this one won't render*/}
+        <Header />
         <MainContent />
         <Footer /> {/*but the one in here does*/}
       </div>
+    </>
   );
 }
 
