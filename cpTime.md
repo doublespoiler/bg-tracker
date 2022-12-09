@@ -18,4 +18,6 @@
 * 1430 - Learn about how TS/React interact together - [https://www.youtube.com/watch?v=kBRrOVbsv3c&list=PLY6oTPmKnKbaL32w5whB8Dxvy_DgOT8Nd&index=3](https://www.youtube.com/watch?v=kBRrOVbsv3c&list=PLY6oTPmKnKbaL32w5whB8Dxvy_DgOT8Nd&index=3)
 * 1700 - Research BGA API search queries [https://www.boardgameatlas.com/api/docs/search](https://www.boardgameatlas.com/api/docs/search) (see [notes.md](notes.md))
 
-      
+## 12/9
+
+* 1000 - Research colors, design

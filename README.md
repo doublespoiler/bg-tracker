@@ -1,8 +1,20 @@
+<!-- omit from toc -->
 # Board Game Collection App (TBA)
-
+<!-- omit from toc -->
 ## By Skylan Lew
-
+<!-- omit from toc -->
 ### Epicodus C#/React Capstone and beyond
+<!-- omit from toc -->
+## Table of Contents
+
+- [Technologies Used](#technologies-used)
+- [Description](#description)
+- [Setup/Installation](#setupinstallation)
+  - [Requires](#requires)
+  - [Tested/Developed with](#testeddeveloped-with)
+  - [Download/Run Instructions](#downloadrun-instructions)
+- [Known Bugs](#known-bugs)
+- [License](#license)
 
 ## Technologies Used
 
@@ -16,7 +28,7 @@
 
 An application for tracking personal board game collections, with BGAtlas API integration for board game information.
 
-## Setup/Installation Requirements
+## Setup/Installation
 
 ### Requires
 
@@ -34,35 +46,15 @@ An application for tracking personal board game collections, with BGAtlas API in
 
 ### Download/Run Instructions
 
-#### step 1 - download
+  step 1 - download `git clone https://github.com/doublespoiler/bg-tracker.git`
 
-```sh
-git clone https://github.com/doublespoiler/bg-tracker.git
-```
+  step 1 - Navigate to main folder `cd bg-tracker`
 
-#### step 1 - Navigate to main folder
+  step 2 - Install dependencies `npm install`
 
-```sh
-cd bg-tracker
-```
+  step 3 - Run Dev Environment `npm run dev`
 
-#### step 2 - Install dependencies
-
-```sh
-npm install
-```
-
-#### step 3 - Run Dev Environment
-
-```sh
-npm run dev
-```
-
-#### step 4 - run build for production
-
-```sh
-npm run build
-```
+  step 4 - run build for production `npm run build`
 
 ## Known Bugs
 
@@ -71,6 +63,4 @@ npm run build
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/) `[MIT](https://choosealicense.com/licenses/mit/)`
-
-Copyright (c) 2022 Skylan Lew
+[MIT](https://choosealicense.com/licenses/mit/) (c) 2022 Skylan Lew
