@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.0",
+    "eslint": "^8.29.0",
     "parcel": "^2.8.0",
     "process": "^0.11.10",
     "sass": "^1.25.0",
