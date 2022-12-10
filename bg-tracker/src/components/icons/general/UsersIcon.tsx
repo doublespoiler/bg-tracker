@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function SingleIcon(){
+export function Single(){
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user" width="44" height="44" viewBox="0 0 24 24" >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -10,7 +10,7 @@ export function SingleIcon(){
   )
 }
 
-export function MultiIcon(){
+export function Multi(){
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-users" width="44" height="44" viewBox="0 0 24 24" >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -22,7 +22,7 @@ export function MultiIcon(){
   )
 }
 
-export function PlusIcon(){
+export function Plus(){
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-plus" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -33,7 +33,7 @@ export function PlusIcon(){
   )
 }
 
-export function MinusIcon(){
+export function Minus(){
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-minus" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
