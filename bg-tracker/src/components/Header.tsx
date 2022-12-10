@@ -1,6 +1,6 @@
 import React from 'react';
-import MenuIcon from './icons/general/Menu';
-import HomeIcon from './icons/general/Home';
+import MenuIcon from './icons/general/MenuIcon';
+import HomeIcon from './icons/general/HomeIcon';
 
 function Header(){
   return(
