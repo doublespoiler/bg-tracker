@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Clock(){
+export const Clock = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-alarm" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -12,17 +12,17 @@ export function Clock(){
   )
 }
 
-export function Alarm(){
+export const Alarm = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-clock" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
       <polyline points="12 7 12 12 15 15" />
     </svg>
-  )
+  );
 }
 
-export function Hourglass(){
+export const Hourglass = () => {
   return( 
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-hourglass" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -31,5 +31,5 @@ export function Hourglass(){
       <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z" />
       <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z" />
     </svg>
-  )
+  );
 }
