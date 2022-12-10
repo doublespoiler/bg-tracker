@@ -2,7 +2,7 @@ import React from 'react';
 
 export function SingleIcon(){
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user" viewBox="0 0 24 24" >
+    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user" width="44" height="44" viewBox="0 0 24 24" >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="7" r="4" />
       <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
@@ -12,7 +12,7 @@ export function SingleIcon(){
 
 export function MultiIcon(){
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-users" viewBox="0 0 24 24" >
+    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-users" width="44" height="44" viewBox="0 0 24 24" >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="9" cy="7" r="4" />
       <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
@@ -24,7 +24,7 @@ export function MultiIcon(){
 
 export function PlusIcon(){
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-plus" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-plus" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="9" cy="7" r="4" />
       <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
@@ -35,7 +35,7 @@ export function PlusIcon(){
 
 export function MinusIcon(){
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-minus" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-minus" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="9" cy="7" r="4" />
       <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />

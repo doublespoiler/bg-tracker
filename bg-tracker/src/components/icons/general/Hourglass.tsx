@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function HourglassIcon() {
   return( 
-    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-hourglass" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-hourglass" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M6.5 7h11" />
       <path d="M6.5 17h11" />
