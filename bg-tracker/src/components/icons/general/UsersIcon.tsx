@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Single = () => {
+export const Single:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user" width="44" height="44" viewBox="0 0 24 24" >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -10,7 +10,7 @@ export const Single = () => {
   );
 }
 
-export const Multi = () => {
+export const Multi:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-users" width="44" height="44" viewBox="0 0 24 24" >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -22,7 +22,7 @@ export const Multi = () => {
   );
 }
 
-export const Plus = () => {
+export const Plus:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-plus" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -33,7 +33,7 @@ export const Plus = () => {
   );
 }
 
-export const Minus = () => {
+export const Minus:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user-minus" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

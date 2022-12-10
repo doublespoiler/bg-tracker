@@ -12,7 +12,7 @@ export const Clock = () => {
   )
 }
 
-export const Alarm = () => {
+export const Alarm:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-clock" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -22,7 +22,7 @@ export const Alarm = () => {
   );
 }
 
-export const Hourglass = () => {
+export const Hourglass:React.FC = () => {
   return( 
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-hourglass" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

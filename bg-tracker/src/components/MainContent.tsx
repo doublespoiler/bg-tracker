@@ -1,7 +1,12 @@
 import React from 'react';
 import Navigation from './Navigation';
 
-function MainContent() {
+interface MainContentProps{
+  
+}
+
+const MainContent:React.FC<MainContentProps> = (props) => {
+  const [mainContent, setMainContent] = React.useState();
   return (
       <div className="main-content">
           <h1>Reasons I'm excited to learn React</h1>

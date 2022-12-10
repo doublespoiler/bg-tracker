@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Star = () => {
+export const Star:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-star" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -9,7 +9,7 @@ export const Star = () => {
   )
 }
 
-export const Half = () => {
+export const Half:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-star-half" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -18,7 +18,7 @@ export const Half = () => {
   );
 }
 
-export const Off = () => {
+export const Off:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-star-off" width="44" height="44" viewBox="0 0 24 24" >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

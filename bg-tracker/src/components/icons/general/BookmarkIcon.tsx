@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Bookmark  = () => {
+export const Bookmark:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-bookmark" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -9,7 +9,7 @@ export const Bookmark  = () => {
   );
 }
 
-export const Off = () => {
+export const Off:React.FC  = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-bookmark-off" width="44" height="44" viewBox="0 0 24 24" >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

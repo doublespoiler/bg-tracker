@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Plus = () => {
+export const Plus:React.FC = () => {
   return(
   <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-zoom-in" width="44" height="44" viewBox="0 0 24 24" >
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -12,7 +12,7 @@ export const Plus = () => {
   );
 }
 
-export const Minus = () => {
+export const Minus:React.FC = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-zoom-out" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

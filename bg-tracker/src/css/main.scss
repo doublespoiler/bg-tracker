@@ -24,6 +24,11 @@ header {
   justify-content: space-between;
 }
 
+footer {
+  display: flex;
+  justify-content: space-around;
+}
+
 .row {
   display: flex;
   width: 90%;

@@ -8,15 +8,13 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 import Menu from './components/Menu';
 
-function App() {
+const App:React.FC = () => {
   return (
       <div id="wrapper">
-      
-        
+        <Menu />
         <Header />
         <MainContent />
-        <Footer /> {/*this one does*/}
-        <Menu /> {/*this one won't render*/}
+        <Footer />
       </div>
   );
 }

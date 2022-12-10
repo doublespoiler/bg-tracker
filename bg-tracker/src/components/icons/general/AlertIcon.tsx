@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Circle = () => {
+export const Circle:React.FC  = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-alert-circle" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -11,7 +11,7 @@ export const Circle = () => {
   );
 }
 
-export const Triangle = () => {
+export const Triangle:React.FC  = () => {
   return(
     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-alert-triangle" width="44" height="44" viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
