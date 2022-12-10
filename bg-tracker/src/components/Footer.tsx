@@ -9,7 +9,6 @@ function Footer(){
     <div className="footer">
       <HomeIcon />
       <Users.MultiIcon />
-      <Menu /> {/*this is the one that does render*/}
     </div>
   );
 }

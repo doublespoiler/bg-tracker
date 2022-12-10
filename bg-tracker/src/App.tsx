@@ -11,10 +11,11 @@ function App() {
   return (
     <>
       <div id="wrapper">
+      <Footer /> {/*but the one in here does*/}
         <Menu /> {/*this one won't render*/}
         <Header />
         <MainContent />
-        <Footer /> {/*but the one in here does*/}
+        
       </div>
     </>
   );
