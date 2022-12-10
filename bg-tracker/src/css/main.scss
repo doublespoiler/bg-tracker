@@ -63,8 +63,6 @@ justify-content: space-around;
 //make sure you remove them from the svg tag itself
 //will probably pull them out of here later and use props instead for theming
 .icon-tabler {
-  width: 44;
-  height: 44;
   stroke-width: 1.5;
   stroke: $primary-color;
   fill: none;
