@@ -11,7 +11,7 @@ import Menu from './components/Menu';
 const App:React.FC = () => {
   return (
       <div id="wrapper">
-        <Menu />
+        {/* <Menu /> */}
         <Header />
         <MainContent />
         <Footer />

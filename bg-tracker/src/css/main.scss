@@ -4,6 +4,8 @@ $font-stack: Helvetica, sans-serif;
 $primary-color: #7e33b7;
 $font-color: white;
 $background-color: #1A1B25;
+$background-color-light: #fff;
+$font-color-light: #000;
 $accent-color-1: #FF595E;
 $accent-color-2: #1982C4;
 $accent-color-3: #FFCA3A;
@@ -22,11 +24,24 @@ h1 {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 footer {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  height: 8vh;
+}
+
+main{
+  background-color: $background-color-light;
+  color: $font-color-light;
+  height: 84vh;
+  padding: 0.5rem;
 }
 
 .row {
@@ -73,4 +88,15 @@ justify-content: space-around;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+
+
+
+#wrapper{
+  max-width: 100%;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

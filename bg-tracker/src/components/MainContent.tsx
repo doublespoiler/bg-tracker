@@ -8,7 +8,7 @@ interface MainContentProps{
 const MainContent:React.FC<MainContentProps> = (props) => {
   const [mainContent, setMainContent] = React.useState();
   return (
-      <div className="main-content">
+      <main>
           <h1>Reasons I'm excited to learn React</h1>
           <ul>
               <li>It's a popular library, so I'll be 
@@ -16,7 +16,7 @@ const MainContent:React.FC<MainContentProps> = (props) => {
               <li>I'm more likely to get a job as a developer
               if I know React</li>
           </ul>
-      </div>
+      </main>
   )
 }
 
