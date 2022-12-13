@@ -1,9 +1,6 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MainContent from './components/MainContent';
-import Navigation from './components/Navigation.jsx';
-import * as StarIcon from './components/icons/general/StarIcon';
-// import React from 'react';
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import Menu from './components/Menu';

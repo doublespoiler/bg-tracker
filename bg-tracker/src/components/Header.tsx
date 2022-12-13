@@ -1,12 +1,11 @@
 import React from 'react';
-import * as MenuIcon from './icons/general/MenuIcon';
-import * as HomeIcon from './icons/general/HomeIcon';
+import {IconMenu2} from '@tabler/icons';
 
 const Header:React.FC = () => {
   return(
       <header className="nav">
         <h1>LO</h1>
-        <MenuIcon.Menu />
+        <IconMenu2 />
       </header>
   );
 }
