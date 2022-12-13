@@ -1,4 +1,5 @@
 @use 'reset';
+@use 'slider';
 
 $font-stack: Helvetica, sans-serif;
 $primary-color: #7e33b7;
@@ -10,15 +11,21 @@ $accent-color-1: #FF595E;
 $accent-color-2: #1982C4;
 $accent-color-3: #FFCA3A;
 $accent-color-4: #8AC926;
+$accent-grey: #bbb;
 
 
 body{
   background-color: $background-color;
   color: $font-color;
+  max-width: 100%;
 }
 
 h1 {
   color: $primary-color;
+}
+
+h3{
+  width: min;
 }
 
 header {
@@ -41,57 +48,27 @@ main{
   background-color: $background-color-light;
   color: $font-color-light;
   height: 84vh;
-  padding: 0.5rem;
-}
-
-.row {
-  display: flex;
-  width: 90%;
-  flex-wrap: wrap;
-  margin: 10px auto;
-  justify-content: space-around;
-}
-
-.card {
+  // padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 20px;
-  background-color: silver;
-  height: 400px;
-  width: 330px;
-  text-align: center;
-}
-
-.smallcard {
-  height: 350px;
-  width: 300px;
-  background-color: silver;
-  padding: 10px;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-
+  align-items: center;
+  overflow-y:scroll;
 }
 
 .navigation {
-display: flex;
-justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 //moved default Tabler icon properties styling to CSS
 //make sure you remove them from the svg tag itself
 //will probably pull them out of here later and use props instead for theming
 .icon-tabler {
-  stroke-width: 1.5;
   stroke: $primary-color;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-
-
 
 #wrapper{
   max-width: 100%;
@@ -100,3 +77,29 @@ justify-content: space-around;
   display: flex;
   flex-direction: column;
 }
+
+.game--detail--cover{
+  text-align: center;
+  .game--detail--title{
+    font-size: 2rem;
+  }
+}
+
+.game--detail--summary{
+  width: 90%;
+}
+
+.summary--line{
+  display: flex;
+  justify-content: space-around;
+
+  div{
+    display: flex;
+    width: 100%;
+    div{
+      width: fit-content;
+    }
+  }
+}
+
+

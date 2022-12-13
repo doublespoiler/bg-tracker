@@ -1,0 +1,17 @@
+$accent-grey: #bbb;
+
+.summary--slider{
+  display: flex;
+  overflow-x: scroll;
+  div{
+    flex-shrink: 0;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: $accent-grey;
+  }
+}
