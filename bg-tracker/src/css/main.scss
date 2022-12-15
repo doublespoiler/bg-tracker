@@ -76,16 +76,21 @@ main{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: red;
 }
 
 .game--detail--cover{
   text-align: center;
+  display: flex;
+  flex-direction: column;
   .game--detail--title{
     font-size: 2rem;
   }
   .cover--buttons{
+    align-self: end;
+    float: right;
     position: absolute;
-    right: 0;
+    margin: 0.5rem;
   }
 }
 
