@@ -8,11 +8,7 @@ const GameList:React.FC<GameListProps> = (props) => {
 
   const[gameList, setGameList] = React.useState();
 
-  // var parseString = require('xml2js').parseString;
-  // var xml = fetch("https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=2827&objecttype=property&showcount=25&sort=rank&subtype=boardgamemechanic").then(res => res.json());
-  // parseString(xml, function (err, result) {
-  //   console.dir(result);
-  // });
+
   React.useEffect(() => {
     var result = fetch("https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=2827&objecttype=property&showcount=25&sort=rank&subtype=boardgamemechanic")
       .then(res => res.json())
