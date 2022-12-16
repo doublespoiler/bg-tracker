@@ -14,8 +14,8 @@ const MainContent:React.FC<MainContentProps> = (props) => {
   return (
     <div>
       <GameList />
-      <GameDetail />
-      <SearchForm />
+      {/* <GameDetail />
+      <SearchForm /> */}
     </div>
   )
 }
