@@ -1,50 +1,105 @@
 import React from "react";
 import gamesData from './../gamesData.js'
-
+import gameListReducer from "../reducers/gameListReducer";
+import { getGameListFail, getGameListSuccess } from "../actions/index";
 interface GameListProps{
 
 }
 
+const initialState = {
+  isLoaded: false,
+  gameList: [],
+  error: null
+};
+
+
 const GameList:React.FC<GameListProps> = (props) => {
 
-
-  const[gameList, setGameList] = React.useState([]);
-
+  const[state, dispatch] = React.useReducer(gameListReducer, initialState);
 
   React.useEffect(() => {
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=1013&objecttype=property&showcount=25&sort=rank&subtype=boardgamecategory')}`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        var values = Object.values(JSON.parse(data.contents))[0];
-        setGameList(values as any);
-      });
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=2827&objecttype=property&showcount=25&sort=rank&subtype=boardgamemechanic')}`)
+      .then(res => {
+        if(!res.ok){
+          throw new Error(`${res.status}: ${res.statusText}`);
+        } else {
+          return res.json();
+        }
+      })
+      .then((jsonRes) => {
+        const action = getGameListSuccess(Object.values(JSON.parse(jsonRes.contents))[0]);
+        dispatch(action);
+      })
+      .catch((error) => {
+        const action = getGameListFail(error.message);
+        dispatch(action);
+      })
+  }, [])
 
-  }, []);
-  console.log("game list " + typeof(gameList));
-  console.log(gameList);
-  //Object.keys returns just the names of the properties (items, itemdata, linkdata, config)
-  //Object.entries returns the properties and their values as key-value pairs
-  //Object.values returns only the values (what we want)
-  // const arr = Object.values(gameList)[0];
-  // console.log("arr ");
-  // console.log(arr);
+  
+function testCall(){
+  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=1013&objecttype=property&showcount=25&sort=rank&subtype=boardgamecategory')}`)
+  .then(res => {
+    if(!res.ok){
+      throw new Error(`${res.status}: ${res.statusText}`);
+    } else {
+      return res.json();
+    }
+  })
+  .then((jsonRes) => {
+    const action = getGameListSuccess(Object.values(JSON.parse(jsonRes.contents))[0]);
+    dispatch(action);
+  })
+  .catch((error) => {
+    const action = getGameListFail(error.message);
+    dispatch(action);
+  })
+}
 
-  return(
-    <div className="game--list">
-      {gameList.map((game) => 
-      <div className="game--list--game" key={game.objectid}>
-        <img src={game.images.thumb} alt={game.name}></img>
-        <div className="game--list--details">
-          <p className="game--list--game--title">{game.name}</p>{game.avgweight}
+function testCall2(){
+  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=2827&objecttype=property&showcount=25&sort=rank&subtype=boardgamemechanic')}`)
+  .then(res => {
+    if(!res.ok){
+      throw new Error(`${res.status}: ${res.statusText}`);
+    } else {
+      return res.json();
+    }
+  })
+  .then((jsonRes) => {
+    const action = getGameListSuccess(Object.values(JSON.parse(jsonRes.contents))[0]);
+    dispatch(action);
+  })
+  .catch((error) => {
+    const action = getGameListFail(error.message);
+    dispatch(action);
+  })
+}
+
+  const {error, isLoaded, gameList} = state;
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  } else if (!isLoaded) {
+    return <p>...Loading...</p>;
+  } else {
+    return(
+      <div className="game--list">
+        <button onClick={testCall}>click</button>
+        <button onClick={testCall2}>click2</button>
+        {gameList.map((game) => 
+        <div className="game--list--game" key={game.objectid}>
+          <img src={game.images.thumb} alt={game.name}></img>
+          <div className="game--list--details">
+            <p className="game--list--game--title">{game.name}</p>{game.avgweight}
+          </div>
         </div>
+        )}
       </div>
-      )}
-    </div>
-    // <div>
-    //   <p>Game List</p>
-    // </div>
-  )
+      // <div>
+      //   <p>Game List</p>
+      // </div>
+    )
+  }
 }
 
 export default GameList;
