@@ -1,5 +1,7 @@
 <!-- omit from toc -->
 # Board Game Collection App (TBA)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoublespoiler%2Fbg-tracker.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdoublespoiler%2Fbg-tracker?ref=badge_shield)
+
 <!-- omit from toc -->
 ## By Skylan Lew
 <!-- omit from toc -->
@@ -64,3 +66,6 @@ An application for tracking personal board game collections, with BGAtlas API in
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/) (c) 2022 Skylan Lew
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoublespoiler%2Fbg-tracker.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdoublespoiler%2Fbg-tracker?ref=badge_large)
