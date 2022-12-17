@@ -2,6 +2,7 @@ import React from "react";
 import gamesData from './../gamesData.js'
 import gameListReducer from "../reducers/gameListReducer";
 import { getGameListFail, getGameListSuccess } from "../actions/index";
+import Game from "./Game";
 interface GameListProps{
 
 }
@@ -87,12 +88,7 @@ function testCall2(){
         <button onClick={testCall}>click</button>
         <button onClick={testCall2}>click2</button>
         {gameList.map((game) => 
-        <div className="game--list--game" key={game.objectid}>
-          <img src={game.images.thumb} alt={game.name}></img>
-          <div className="game--list--details">
-            <p className="game--list--game--title">{game.name}</p>{game.avgweight}
-          </div>
-        </div>
+          <Game thisGame={game} key={game.objectid}/>
         )}
       </div>
       // <div>
