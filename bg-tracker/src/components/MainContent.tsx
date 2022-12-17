@@ -27,11 +27,11 @@ const MainContent:React.FC<MainContentProps> = (props) => {
   // console.log("game list" + gameList);
 
   return (
-    <div>
+    <main>
       <GameList />
       {/* <GameDetail />
       <SearchForm /> */}
-    </div>
+    </main>
   )
 }
 

@@ -33,8 +33,9 @@ const GameList:React.FC<GameListProps> = (props) => {
   return(
     <div className="game-list">
       {gameList.map((game) => 
-      <div>
-        {game.name}
+      <div key={game.objectid}>
+        <img src={game.images.thumb}></img>
+        {game.name} {game.avgweight}
       </div>
       )}
     </div>
