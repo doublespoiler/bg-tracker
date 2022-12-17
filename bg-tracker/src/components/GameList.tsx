@@ -91,9 +91,6 @@ function testCall2(){
           <Game thisGame={game} key={game.objectid}/>
         )}
       </div>
-      // <div>
-      //   <p>Game List</p>
-      // </div>
     )
   }
 }

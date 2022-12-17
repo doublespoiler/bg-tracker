@@ -144,8 +144,21 @@ main{
 .game--list{
   display: flex;
   flex-direction: column;
+  width: 80%;
   .game--list--game {
     display: flex;
+    .game--list--game--thumb{
+      width: 8rem;
+      height: 8rem;
+      img{
+        width: 8rem;
+        height: 8rem;
+        object-fit: contain;
+      }
+    }
+  }
+  .game--list--details{
+    padding: 0.5rem;
   }
   .game--list--game--title{
     font-weight: bold;
