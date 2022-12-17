@@ -96,8 +96,6 @@ main{
   }
 }
 
-
-
 .game--detail--summary{
   width: 90%;
   margin-left: 0;
@@ -142,6 +140,18 @@ main{
 //     }
 //   }
 // }
+
+.game--list{
+  display: flex;
+  flex-direction: column;
+  .game--list--game {
+    display: flex;
+  }
+  .game--list--game--title{
+    font-weight: bold;
+    font-size: larger;
+  }
+}
 
 
 

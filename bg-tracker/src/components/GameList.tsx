@@ -17,7 +17,7 @@ const GameList:React.FC<GameListProps> = (props) => {
       .then(data => {
         console.log(data);
         var values = Object.values(JSON.parse(data.contents))[0];
-        setGameList(values);
+        setGameList(values as any);
       });
 
   }, []);
@@ -31,11 +31,13 @@ const GameList:React.FC<GameListProps> = (props) => {
   // console.log(arr);
 
   return(
-    <div className="game-list">
+    <div className="game--list">
       {gameList.map((game) => 
-      <div key={game.objectid}>
-        <img src={game.images.thumb}></img>
-        {game.name} {game.avgweight}
+      <div className="game--list--game" key={game.objectid}>
+        <img src={game.images.thumb} alt={game.name}></img>
+        <div className="game--list--details">
+          <p className="game--list--game--title">{game.name}</p>{game.avgweight}
+        </div>
       </div>
       )}
     </div>
