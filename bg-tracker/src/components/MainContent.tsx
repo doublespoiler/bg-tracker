@@ -9,19 +9,44 @@ interface MainContentProps{
 }
 
 const MainContent:React.FC<MainContentProps> = (props) => {
-  const [mainContent, setMainContent] = React.useState();
+  const [mainContent, setMainContent] = React.useState({
+    mainContent: "gameList",
+    selectedGame: null,
+    selectedList: null
+  });
 
-  const handleClick = () => {
-    
+  const handleClickGame = (objectId: string) => {
+    setMainContent(prevMainContent => ({
+      ...prevMainContent,
+      mainContent: "gameDetail",
+      selectedGame: objectId,
+      selectedList: null
+    }));
   }
 
-  return (
-    <main>
-      <GameList />
-      {/* <GameDetail />
-      <SearchForm /> */}
-    </main>
-  )
+  const handleClickList = (searchQuery: string) => {
+    setMainContent(prevMainContent => ({
+      ...prevMainContent,
+      mainContent: "gameList",
+      selectedGame: null,
+      selectedList: searchQuery 
+    }));
+  }
+
+  if(mainContent.mainContent === "gameDetail"){
+    return(
+      <main>
+        <GameDetail selectedGame={mainContent.selectedGame} />
+      </main>
+    )
+  }
+  if(mainContent.mainContent === "gameList"){
+    return(
+      <main>
+        <GameList selectedList={mainContent.selectedList} />
+      </main>
+    )
+  }
 }
 
 export default MainContent;
