@@ -9,6 +9,8 @@ const SearchForm:React.FC<SearchFormProps> = () => {
     <div className="search-form">
       <form>
         <p className="form--title">Search Game</p>
+        <label>Name</label>
+        <input type="text" name="name"></input>
         <label></label>
       </form>
     </div>

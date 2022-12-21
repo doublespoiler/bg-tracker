@@ -2,18 +2,58 @@ import React from 'react';
 import Navigation from './Navigation';
 import { IconStar, IconStarHalf, IconUsers, IconHourglass, IconWeight, IconMoodKid, IconBookmark } from '@tabler/icons';
 import * as root from './../../public/root.jpg';
+import gameReducer from "../reducers/gameReducer";
+import gameListReducer from '../reducers/gameListReducer';
+import { getGameListFail, getGameListSuccess, getGameFail, getGameSuccess } from "../actions/index";
+import { convertXML } from 'simple-xml-to-json';
 
 
 interface GameDetailProps{
-  
+  selectedGame: string
+  onGameClick: Function,
+  onListClick: Function
+}
+
+const initialGameState = {
+  isLoaded: false,
+  game: [],
+  error: null
+}
+
+const initialListState = {
+  isLoaded: false,
+  gameList: [],
+  error: null
 }
 
 const GameDetail:React.FC<GameDetailProps> = (props) => {
+
+  const[state, dispatchGame] = React.useReducer(gameReducer, initialGameState);
+  const[listState, dispatchList] = React.useReducer(gameListReducer, initialListState);
+
+
+  fetch(`https://boardgamegeek.com/xmlapi2/thing?id=${props.selectedGame}`)
+  .then(res => {
+    //these console logs aren't firing
+    const gameXml = convertXML(res);
+    console.log(gameXml);
+    return gameXml;
+  })
+  .then((jsonRes) => {
+    console.log(jsonRes);
+    const action = getGameSuccess(Object.values(JSON.parse(jsonRes.contents))[0]);
+    dispatchGame(action);
+  })
+  .catch((error) => {
+    const action = getGameFail(error.message);
+    dispatchGame(action);
+  })
 
   return (
     <main>
       <div className="game--detail--cover">
         <div className="cover--buttons">
+          {props.selectedGame}
           <IconStar />
           <IconBookmark />
         </div>

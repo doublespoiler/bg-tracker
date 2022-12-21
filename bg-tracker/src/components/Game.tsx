@@ -2,6 +2,7 @@ import React from 'react';
 
 interface GameProps{
   thisGame: ThisGameProps
+  onClick: Function
 }
 
 interface ThisGameProps{
@@ -13,6 +14,7 @@ interface ThisGameProps{
 
 interface ImageProps{
   thumb: string
+  
 }
 
 const Game:React.FC<GameProps> = (props) => {

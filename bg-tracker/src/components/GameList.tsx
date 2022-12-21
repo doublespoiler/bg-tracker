@@ -3,8 +3,10 @@ import gamesData from './../gamesData.js'
 import gameListReducer from "../reducers/gameListReducer";
 import { getGameListFail, getGameListSuccess } from "../actions/index";
 import Game from "./Game";
-interface GameListProps{
 
+interface GameListProps{
+  selectedList: string,
+  onGameClick: Function
 }
 
 const initialState = {
@@ -19,7 +21,7 @@ const GameList:React.FC<GameListProps> = (props) => {
   const[state, dispatch] = React.useReducer(gameListReducer, initialState);
 
   React.useEffect(() => {
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=2827&objecttype=property&showcount=25&sort=rank&subtype=boardgamemechanic')}`)
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.geekdo.com/api/geekitem/${props.selectedList}`)}`)
       .then(res => {
         if(!res.ok){
           throw new Error(`${res.status}: ${res.statusText}`);
@@ -78,6 +80,7 @@ function testCall2(){
 
   const {error, isLoaded, gameList} = state;
 
+
   if (error) {
     return <p>Error: {error}</p>;
   } else if (!isLoaded) {
@@ -88,7 +91,7 @@ function testCall2(){
         <button onClick={testCall}>click</button>
         <button onClick={testCall2}>click2</button>
         {gameList.map((game) => 
-          <Game thisGame={game} key={game.objectid}/>
+          <Game thisGame={game} key={game.objectid} onClick={props.onGameClick(game.objectId)}/>
         )}
       </div>
     )
