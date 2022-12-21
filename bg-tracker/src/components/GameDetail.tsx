@@ -5,6 +5,7 @@ import * as root from './../../public/root.jpg';
 import gameReducer from "../reducers/gameReducer";
 import gameListReducer from '../reducers/gameListReducer';
 import { getGameListFail, getGameListSuccess, getGameFail, getGameSuccess } from "../actions/index";
+import bggApiToJson from 'bgg-api-to-json';
 
 
 
@@ -35,39 +36,53 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
 
   var parseString = require('xml2js').parseString;
 
-  React.useEffect(() => {
-    fetch(`https://boardgamegeek.com/xmlapi2/thing?id=${props.selectedGame}`)
-      .then(res => res.text())
-      .then(xml => {
-        var json;
-        parseString(xml, function(err, result){
-          console.log(result);
-          json = result;
-        })
-        console.log(typeof(json));
-        return json
-      }).then(json => {
-        console.log(json.items.item[0])
-        console.log(Object.values(json.items.item[0]))
-        
-        
+  
 
-        console.log("action");
-        const action = getGameSuccess(Object.values(json.items.item[0]));
-        console.log('dispatching');
-        dispatchGame(action);
-      })
-        // return jsonRes;
-        // return res.text();
-      // .then((jsonRes) => {
-      //   console.log(jsonRes);
-      //   const action = getGameSuccess(Object.values(JSON.parse(jsonRes.contents))[0]);
-      //   dispatchGame(action);
+  React.useEffect(() => {
+
+    console.log(bggApiToJson.thing({id:parseInt(props.selectedGame)}))
+      // .then(res => {
+      //   var response = res;
+      //   console.log(response);
       // })
-      // .catch((error) => {
-      //   const action = getGameFail(error.message);
-      //   dispatchGame(action);
-      // })
+    // fetch(`https://boardgamegeek.com/xmlapi2/thing?id=${props.selectedGame}`)
+    //   .then(res => {
+    //     var result = res;
+    //     console.log(result)
+    //     var text = result.text();
+    //     console.log(text)
+    //     return text;
+    //   })
+    //   .then(str => {
+    //     console.log(str)
+    //     var xml = new window.DOMParser().parseFromString(str, "text/xml")
+    //     console.log(xml)
+    //     return xml
+    //     // var json;
+    //     // parseString(xml, function(err, result){
+    //     //   console.log(result);
+    //     //   json = result;
+    //     // })
+    //     // console.log(typeof(json));
+    //     // return json
+    //   }).then(xml => {
+    //     var xmlStr = (new XMLSerializer()).serializeToString(xml);
+    //     var json;
+    //     parseString(xmlStr, function(err, result){
+    //       console.log(xmlStr);
+    //       console.log(result);
+    //       json = result;
+    //     })
+    //     return json;
+    //   }).then( json => {
+    //     var values = Object.values(json);
+    //     console.log(values);
+    //     return values;
+    //   }).then(jsonRes => {
+    //     const action = getGameSuccess(jsonRes);
+    //     dispatchGame(action);
+    //   })
+
   }, [props.selectedGame]);
 
   const {error, isLoaded, game} = state;

@@ -17,27 +17,34 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
+    "bgg-api-to-json": "^1.1.8",
     "cors-anywhere": "^0.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-slider": "^2.0.4",
     "react-spring": "^9.5.5",
-    "simple-xml-to-json": "^1.0.9",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.0",
+    "assert": "^2.0.0",
+    "crypto-browserify": "^3.12.0",
     "eslint": "^8.29.0",
     "https-browserify": "^1.0.0",
     "parcel": "^2.8.0",
+    "path-browserify": "^1.0.1",
     "process": "^0.11.10",
     "punycode": "^1.4.1",
     "querystring-es3": "^0.2.1",
     "sass": "^1.25.0",
+    "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
+    "timers-browserify": "^2.0.12",
     "typescript": "^3.7.5",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "util": "^0.12.5"
   },
   "eslintConfig": {
     "extends": [
