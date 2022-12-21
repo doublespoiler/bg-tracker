@@ -12,7 +12,8 @@ import bggApiToJson from 'bgg-api-to-json';
 interface GameDetailProps{
   selectedGame: string
   onGameClick: Function,
-  onListClick: Function
+  onClickCategory: Function,
+  onClickMechanic: Function
 }
 
 const initialGameState = {
@@ -32,7 +33,7 @@ const initialListState = {
 const GameDetail:React.FC<GameDetailProps> = (props) => {
 
   const[state, dispatchGame] = React.useReducer(gameReducer, initialGameState);
-  const[listState, dispatchList] = React.useReducer(gameListReducer, initialListState);
+  // const[listState, dispatchList] = React.useReducer(gameListReducer, initialListState);
 
   var parseString = require('xml2js').parseString;
 
@@ -40,11 +41,17 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
 
   React.useEffect(() => {
 
-    console.log(bggApiToJson.thing({id:parseInt(props.selectedGame)}))
-      // .then(res => {
-      //   var response = res;
-      //   console.log(response);
-      // })
+    bggApiToJson.thing({id:parseInt(props.selectedGame), stats:true})
+      .then(res => {
+        var result = res;
+        console.log(result);
+
+        const a1 = Object.values(result)[1];
+        const a2 = Object.values(a1);
+        console.log(a2[0]);
+        const action = getGameSuccess(a2[0]);
+        dispatchGame(action);
+      })
     // fetch(`https://boardgamegeek.com/xmlapi2/thing?id=${props.selectedGame}`)
     //   .then(res => {
     //     var result = res;
@@ -56,21 +63,15 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
     //   .then(str => {
     //     console.log(str)
     //     var xml = new window.DOMParser().parseFromString(str, "text/xml")
+    //     console.log("xml");
     //     console.log(xml)
     //     return xml
-    //     // var json;
-    //     // parseString(xml, function(err, result){
-    //     //   console.log(result);
-    //     //   json = result;
-    //     // })
-    //     // console.log(typeof(json));
-    //     // return json
     //   }).then(xml => {
     //     var xmlStr = (new XMLSerializer()).serializeToString(xml);
     //     var json;
     //     parseString(xmlStr, function(err, result){
     //       console.log(xmlStr);
-    //       console.log(result);
+    //       console.log(result.items.item[0]);
     //       json = result;
     //     })
     //     return json;
@@ -97,12 +98,11 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
       <div className="game--detail--cover">
         <div className="cover--buttons">
           {props.selectedGame}
-          {game}
           <IconStar />
           <IconBookmark />
         </div>
-        <img src={root} className="game--detail--image" alt="" />
-        <p className="game--detail--title"></p>
+        <img src={game.image_uri} className="game--detail--image" alt="" />
+        <p className="game--detail--title">{game.name}</p>
       </div>
       <div className="game--detail--summary">
         <div className="summary--grid">
@@ -112,35 +112,36 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
             </div>
             <div className="summary--age">
               <IconMoodKid />
-              <span className="age--text"></span>
+              <span className="age--text">{game.min_age}</span>
             </div>
             <div className="summary--players">
                 <IconUsers /> 
-                <span className="players--text"></span>
+                <span className="players--text">{game.min_players}-{game.max_players}</span>
             </div>
             <div className="summary--playtime">
               <IconHourglass />
-              <span className="playtime--text"></span>
+              <span className="playtime--text">{game.min_play_time}-{game.max_play_time}</span>
             </div>
             <div className="summary--weight">
               <IconWeight />
-              <span className="weight--text"></span>
+              <span className="weight--text">{game.stats.avg_weight} </span>
             </div>
         </div>
         <div className="summary--slider game--detail--categories">
-          <div className="category"></div>
-          <div className="category"></div>
-          <div className="category"></div>
+          {game.categories.map((category) => 
+          <div onClick={props.onClickCategory(category.id)} key={category.id}>{category.value}</div>
+          )}
         </div>
         <div className="summary--slider game--detail--mechanics">
-        <div></div>
-        <div></div>
+          {game.mechanics.map((mechanic) => 
+            <div onClick={props.onClickMechanic(mechanic.id)} key={mechanic.id}>{mechanic.value}</div>
+          )}
         </div>
       </div>
 
       <div className="game--detail--description">
         <h3>Description</h3>
-        <p className="description--text"></p>
+        <p className="description--text">{game.description}</p>
       </div>
     </main>
     )
