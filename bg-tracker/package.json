@@ -23,6 +23,7 @@
     "react-scripts": "5.0.1",
     "react-slider": "^2.0.4",
     "react-spring": "^9.5.5",
+    "simple-xml-to-json": "^1.0.9",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
