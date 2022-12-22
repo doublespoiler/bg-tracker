@@ -21,7 +21,8 @@ const GameList:React.FC<GameListProps> = (props) => {
   const[state, dispatch] = React.useReducer(gameListReducer, initialState);
 
   React.useEffect(() => {
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.geekdo.com/api/geekitem/${props.selectedList}`)}`)
+    if(props.selectedList){
+      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.geekdo.com/api/geekitem/${props.selectedList}`)}`)
       .then(res => {
         if(!res.ok){
           throw new Error(`${res.status}: ${res.statusText}`);
@@ -37,7 +38,9 @@ const GameList:React.FC<GameListProps> = (props) => {
         const action = getGameListFail(error.message);
         dispatch(action);
       })
-  }, [])
+    }
+    
+  })
 
   
 function testCall(){
@@ -91,7 +94,7 @@ function testCall2(){
         <button onClick={testCall}>click</button>
         <button onClick={testCall2}>click2</button>
         {gameList.map((game) => 
-          <Game thisGame={game} key={game.objectid} onClick={props.onGameClick(game.objectId)}/>
+          <Game thisGame={game} key={game.objectid} onClick={props.onGameClick}/>
         )}
       </div>
     )

@@ -40,8 +40,8 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
   
 
   React.useEffect(() => {
-
-    bggApiToJson.thing({id:parseInt(props.selectedGame), stats:true})
+    if(props.selectedGame){
+      bggApiToJson.thing({id:parseInt(props.selectedGame), stats:true})
       .then(res => {
         var result = res;
         console.log(result);
@@ -52,38 +52,8 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
         const action = getGameSuccess(a2[0]);
         dispatchGame(action);
       })
-    // fetch(`https://boardgamegeek.com/xmlapi2/thing?id=${props.selectedGame}`)
-    //   .then(res => {
-    //     var result = res;
-    //     console.log(result)
-    //     var text = result.text();
-    //     console.log(text)
-    //     return text;
-    //   })
-    //   .then(str => {
-    //     console.log(str)
-    //     var xml = new window.DOMParser().parseFromString(str, "text/xml")
-    //     console.log("xml");
-    //     console.log(xml)
-    //     return xml
-    //   }).then(xml => {
-    //     var xmlStr = (new XMLSerializer()).serializeToString(xml);
-    //     var json;
-    //     parseString(xmlStr, function(err, result){
-    //       console.log(xmlStr);
-    //       console.log(result.items.item[0]);
-    //       json = result;
-    //     })
-    //     return json;
-    //   }).then( json => {
-    //     var values = Object.values(json);
-    //     console.log(values);
-    //     return values;
-    //   }).then(jsonRes => {
-    //     const action = getGameSuccess(jsonRes);
-    //     dispatchGame(action);
-    //   })
-
+    }
+    
   }, [props.selectedGame]);
 
   const {error, isLoaded, game} = state;
@@ -129,12 +99,13 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
         </div>
         <div className="summary--slider game--detail--categories">
           {game.categories.map((category) => 
-          <div onClick={props.onClickCategory(category.id)} key={category.id}>{category.value}</div>
+          <div onClick={() => {props.onClickCategory(category.id)}} key={category.id}>{category.value}</div>
           )}
         </div>
         <div className="summary--slider game--detail--mechanics">
           {game.mechanics.map((mechanic) => 
-            <div onClick={props.onClickMechanic(mechanic.id)} key={mechanic.id}>{mechanic.value}</div>
+          <div onClick={() => {props.onClickMechanic(mechanic.id)}} key={mechanic.id}>{mechanic.value}</div>
+            // <div onClick={props.onClickMechanic(mechanic.id)} key={mechanic.id}>{mechanic.value}</div>
           )}
         </div>
       </div>
