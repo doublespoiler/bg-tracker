@@ -6,6 +6,7 @@ interface SearchFormProps{
 
 const SearchForm:React.FC<SearchFormProps> = (props) => {
   return(
+    //TODO: Fix type, works as vanilla js
     <div className="search-form" onSubmit={props.formSubmissionHandler}>
       <form>
         <p className="form--title">Search Game</p>

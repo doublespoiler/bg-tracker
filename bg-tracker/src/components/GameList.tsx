@@ -21,7 +21,6 @@ const initialState = {
 const GameList:React.FC<GameListProps> = (props) => {
 
   const[state, dispatch] = React.useReducer(gameListReducer, initialState);
-//https://crossorigin.me/
   React.useEffect(() => {
     if(props.selectedList){
       console.log('list type')
@@ -30,7 +29,6 @@ const GameList:React.FC<GameListProps> = (props) => {
       console.log(objectType);
       fetch(`https://api.codetabs.com/v1/proxy?quest=https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=${props.selectedList}&objecttype=${objectType}&showcount=25&sort=rank&subtype=${props.listType}`)
       .then(res => {
-        
         if(!res.ok){
           throw new Error(`${res.status}: ${res.statusText}`);
         } else {
@@ -52,7 +50,6 @@ const GameList:React.FC<GameListProps> = (props) => {
   }, [props.selectedList, props.listType])
 
   const {error, isLoaded, gameList} = state;
-
 
   if (error) {
     return <p>Error: {error}</p>;

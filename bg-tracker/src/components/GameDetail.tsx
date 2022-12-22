@@ -14,17 +14,19 @@ interface GameDetailProps{
   onClickFamily: Function,
 }
 
+//TODO: Add interface for types for link object
+
 const initialGameState = {
   isLoaded: false,
   game: [],
   error: null
 }
 
-const initialListState = {
-  isLoaded: false,
-  gameList: [],
-  error: null
-}
+// const initialListState = {
+//   isLoaded: false,
+//   gameList: [],
+//   error: null
+// }
 
 const GameDetail:React.FC<GameDetailProps> = (props) => {
 
@@ -63,8 +65,7 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat'
-        }}
-      >
+      }}>
         <div className="game--detail--image">
           <div className="cover--buttons">
             <IconStar />
@@ -105,15 +106,13 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
           )}
         </div>
         <div className="summary--slider game--detail--mechanics">
-        {game.links.map((link) =>
-          link.type === "boardgamemechanic" ? 
-          <div onClick={() => {props.onClickMechanic(link.id, "boardgamemechanic")}} key={link.id}>{link.value}</div> : null
+          {game.links.map((link) => link.type === "boardgamemechanic" ? 
+            <div onClick={() => {props.onClickMechanic(link.id, "boardgamemechanic")}} key={link.id}>{link.value}</div> : null
           )}
         </div>
         <div className="summary--slider game--detail--family"> <p></p>
-          {game.links.map((link) =>
-          link.type === "boardgamefamily" ? 
-          <div onClick={() => {props.onClickFamily(link.id, link.type)}} key={link.id}>{link.value}</div> : null
+          {game.links.map((link) => link.type === "boardgamefamily" ? 
+            <div onClick={() => {props.onClickFamily(link.id, link.type)}} key={link.id}>{link.value}</div> : null
           )}
         </div>
       </div>

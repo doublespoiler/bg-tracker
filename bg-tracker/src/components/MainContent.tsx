@@ -40,19 +40,20 @@ const MainContent:React.FC<MainContentProps> = (props) => {
     }));
   }
 
-  React.useEffect(() => {
+  //to turn on/off search
+  React.useEffect( () => {
     console.log(props.count);
     if(props.count === true){
-      setMainContent(prevMainContent => ({
+      setMainContent( () => ({
         mainContent: "search",
         selectedGame: null,
         selectedList: null,
         listType: null
       }))
-      console.log(mainContent);
     }
   }, [props.count])
 
+  //TODO: Type event
   const handleSearch = (e) => {
     e.preventDefault();
     console.log(props);

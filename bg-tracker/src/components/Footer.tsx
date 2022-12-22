@@ -6,8 +6,6 @@ interface FooterProps{
 }
 
 const Footer:React.FC<FooterProps> = (props) =>{
-  //test
-
   return(
     <footer>
       <IconHome/>

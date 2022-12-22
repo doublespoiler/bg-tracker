@@ -55,7 +55,6 @@ const Game:React.FC<GameProps> = (props) => {
           <div className="game--list--details--weight"><IconWeight /><p>{thisGame.avgweight}</p></div>
         </div>
       </div>
-      
     </div>
   )
 }

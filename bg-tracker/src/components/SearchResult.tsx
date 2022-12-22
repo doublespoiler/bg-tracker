@@ -25,10 +25,10 @@ const SearchResult:React.FC<SearchResultProps> = (props) => {
     const client = BggClient.Create();
     client.search.query({query:props.selectedGame})
     .then(res => {
+      //TODO add error handling
       console.log(res[0]);
       console.log(res[0].items);
       const action = getGameListSuccess(res[0].items);
-      
       dispatch(action);
     })
   }, [props.selectedGame])
