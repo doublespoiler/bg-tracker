@@ -23,6 +23,7 @@
 - SASS/CSS
 - HTML
 - Parcel
+- allOrigins
 
 ## Description
 

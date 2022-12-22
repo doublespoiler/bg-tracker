@@ -21,3 +21,7 @@
 ## 12/9
 
 * 1000 - Research colors, design
+
+## 12/21
+
+* 1300 - Research/test xml to json parsers, bgg xml api clients/etc.
