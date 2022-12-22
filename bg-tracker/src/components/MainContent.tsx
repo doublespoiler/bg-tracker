@@ -38,7 +38,13 @@ const MainContent:React.FC<MainContentProps> = (props) => {
 
   React.useEffect(() => {
     if(props.count !== 0){
-      console.log("search clicked");
+      setMainContent(prevMainContent => ({
+        ...prevMainContent,
+        mainContent: "search",
+        selectedGame: null,
+        selectedList: null,
+        listType: null
+      }))
     }
   }, [props.count])
 
@@ -66,11 +72,11 @@ const MainContent:React.FC<MainContentProps> = (props) => {
       </main>
     )
   }
-  // if(mainContent.mainContent === "search"){
-  //   return(
-  //     <SearchForm />
-  //   )
-  // }
+  if(mainContent.mainContent === "search"){
+    return(
+      <SearchForm />
+    )
+  }
 }
 
 export default MainContent;
