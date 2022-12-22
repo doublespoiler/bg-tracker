@@ -6,17 +6,18 @@ import {createRoot} from 'react-dom/client';
 import Menu from './components/Menu';
 
 const App:React.FC = () => {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(false);
 
-  const handleClickSearch = () => {
-    setCount(prevCount => prevCount + 1);
+  function handleClickSearch(){
+    setCount(prevCount => !prevCount);
+    console.log(count)
   }
 
   return (
       <div id="wrapper">
         {/* <Menu /> */}
         <Header />
-        <MainContent count={count}/>
+        <MainContent count={count} stopSearch={()=>handleClickSearch()}/>
         <Footer onClickSearch={handleClickSearch}/>
       </div>
   );

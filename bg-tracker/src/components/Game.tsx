@@ -2,8 +2,9 @@ import React from 'react';
 import { IconWeight } from '@tabler/icons';
 
 interface GameProps{
-  thisGame: ThisGameProps
-  onClick: Function
+  thisGame: ThisGameProps,
+  onClick: Function,
+  key:string,
 }
 
 interface ThisGameProps{
@@ -11,7 +12,9 @@ interface ThisGameProps{
   avgweight: string,
   images: ImageProps,
   objectid: string,
-  yearpublished:string
+  yearpublished:string,
+  id: string
+  
 }
 
 interface ImageProps{
@@ -23,6 +26,15 @@ const Game:React.FC<GameProps> = (props) => {
   const thisGame = props.thisGame;
   console.log("game");
   console.log(thisGame);
+
+  if(thisGame.images === undefined){
+    thisGame.images = {
+      thumb: "",
+      previewthumb: ""
+    }
+    thisGame.objectid = thisGame.id;
+    thisGame.images.previewthumb = "";
+  }
   
   return(
     <div className="game--list--game" onClick={()=>props.onClick(thisGame.objectid)} 

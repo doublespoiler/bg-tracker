@@ -2,10 +2,12 @@ import React from 'react';
 import GameDetail from './GameDetail';
 import SearchForm from './SearchForm';
 import GameList from './GameList';
+import SearchResult from './SearchResult';
 
 
 interface MainContentProps{
-  count: number
+  count: boolean
+  stopSearch: Function
 }
 
 const MainContent:React.FC<MainContentProps> = (props) => {
@@ -15,6 +17,8 @@ const MainContent:React.FC<MainContentProps> = (props) => {
     selectedList: "2004",
     listType: "boardgamemechanic"
   });
+
+  console.log(props);
 
   const handleClickGame = (objectId: string) => {
     console.log("clicked" + objectId);
@@ -37,25 +41,32 @@ const MainContent:React.FC<MainContentProps> = (props) => {
   }
 
   React.useEffect(() => {
-    if(props.count !== 0){
+    console.log(props.count);
+    if(props.count === true){
       setMainContent(prevMainContent => ({
-        ...prevMainContent,
         mainContent: "search",
         selectedGame: null,
         selectedList: null,
         listType: null
       }))
+      console.log(mainContent);
     }
   }, [props.count])
 
-  const handleSearchClick = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log(props);
+    console.log(mainContent);
+    const searchId = e.target.gameName.value;
+    console.log(searchId);
     setMainContent(prevMainContent => ({
       ...prevMainContent,
-      mainContent: "search",
-      selectedGame: null,
+      mainContent: "gameList",
+      selectedGame: searchId,
       selectedList: null,
-      listType: null
+      listType: "search"
     }));
+    props.stopSearch();
   }
 
   if(mainContent.mainContent === "gameDetail"){
@@ -65,18 +76,29 @@ const MainContent:React.FC<MainContentProps> = (props) => {
       </main>
     )
   }
-  if(mainContent.mainContent === "gameList"){
+  if(mainContent.mainContent === "gameList" && mainContent.listType === "search"){
     return(
       <main>
-        <GameList selectedList={mainContent.selectedList} onGameClick={handleClickGame} listType={mainContent.listType}/>
+        <SearchResult selectedGame={mainContent.selectedGame} onGameClick={handleClickGame} />
       </main>
     )
   }
+  if(mainContent.mainContent === "gameList"){
+        return(
+          <main>
+            <GameList selectedList={mainContent.selectedList} onGameClick={handleClickGame} listType={mainContent.listType}/>
+          </main>
+        )
+    }
   if(mainContent.mainContent === "search"){
     return(
-      <SearchForm />
+      <main>
+        <SearchForm formSubmissionHandler={handleSearch}/>
+      </main>
     )
   }
+  
+  
 }
 
 export default MainContent;
