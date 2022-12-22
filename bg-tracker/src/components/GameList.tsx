@@ -19,11 +19,12 @@ const initialState = {
 const GameList:React.FC<GameListProps> = (props) => {
 
   const[state, dispatch] = React.useReducer(gameListReducer, initialState);
-
+//https://crossorigin.me/
   React.useEffect(() => {
     if(props.selectedList){
-      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.geekdo.com/api/geekitem/${props.selectedList}`)}`)
+      fetch(`https://api.codetabs.com/v1/proxy?quest=https://api.geekdo.com/api/geekitem/${props.selectedList}`)
       .then(res => {
+        
         if(!res.ok){
           throw new Error(`${res.status}: ${res.statusText}`);
         } else {
@@ -31,7 +32,9 @@ const GameList:React.FC<GameListProps> = (props) => {
         }
       })
       .then((jsonRes) => {
-        const action = getGameListSuccess(Object.values(JSON.parse(jsonRes.contents))[0]);
+        console.log('a');
+        console.log(jsonRes.items)
+        const action = getGameListSuccess(jsonRes.items);
         dispatch(action);
       })
       .catch((error) => {
@@ -39,8 +42,7 @@ const GameList:React.FC<GameListProps> = (props) => {
         dispatch(action);
       })
     }
-    
-  })
+  }, [props.selectedList])
 
   
 function testCall(){

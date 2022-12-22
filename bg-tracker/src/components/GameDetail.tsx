@@ -1,12 +1,11 @@
 import React from 'react';
 import Navigation from './Navigation';
 import { IconStar, IconStarHalf, IconUsers, IconHourglass, IconWeight, IconMoodKid, IconBookmark } from '@tabler/icons';
-import * as root from './../../public/root.jpg';
 import gameReducer from "../reducers/gameReducer";
 import gameListReducer from '../reducers/gameListReducer';
 import { getGameListFail, getGameListSuccess, getGameFail, getGameSuccess } from "../actions/index";
 import bggApiToJson from 'bgg-api-to-json';
-
+import { BggClient } from 'boardgamegeekclient';
 
 
 interface GameDetailProps{
@@ -28,8 +27,6 @@ const initialListState = {
   error: null
 }
 
-
-
 const GameDetail:React.FC<GameDetailProps> = (props) => {
 
   const[state, dispatchGame] = React.useReducer(gameReducer, initialGameState);
@@ -37,32 +34,64 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
 
   var parseString = require('xml2js').parseString;
 
-  
-
   React.useEffect(() => {
-    if(props.selectedGame){
-      bggApiToJson.thing({id:parseInt(props.selectedGame), stats:true})
-      .then(res => {
-        var result = res;
-        console.log(result);
+    const client = BggClient.Create();
+    client.thing.query({ id:parseInt(props.selectedGame), stats:1})
+    .then(res => {
+      console.log("client");
+      console.log(res[0])
+      const action = getGameSuccess(res[0]);
+      dispatchGame(action);
+    })
 
-        const a1 = Object.values(result)[1];
-        const a2 = Object.values(a1);
-        console.log(a2[0]);
-        const action = getGameSuccess(a2[0]);
-        dispatchGame(action);
-      })
-    }
-    
+      // bggApiToJson.thing({id:parseInt(props.selectedGame), stats:true})
+      // .then(res => {
+      //   var result = res;
+      //   console.log(result);
+
+      //   const a1 = Object.values(result)[1];
+      //   const a2 = Object.values(a1);
+      //   console.log(a2[0]);
+      //   const action = getGameSuccess(a2[0]);
+      //   dispatchGame(action);
+      // })
+      // .catch((error) => {
+      //   const action = getGameFail(error.message);
+      //   dispatchGame(action);
+      // })
   }, [props.selectedGame]);
 
   const {error, isLoaded, game} = state;
   
   if (error) {
+    const tmp = props.selectedGame;
+    props.selectedGame = null;
+    props.selectedGame = tmp;
     return <p>Error: {error}</p>
   } else if (!isLoaded) {
     return <p>...Loading...</p> 
   } else {
+
+    var mechanics = [];
+    var categories = [];
+    var family = [];
+    
+    game.links.forEach((link)=>{
+      if(link.type==="boardgamecategory"){
+        categories.push(`${link.id}: ${link.value}`)
+      } else if (link.type==="boardgamemechanic"){
+        mechanics.push(`${link.id}: ${link.value}`)
+      } else if (link.type === "boardgamefamily"){
+        family.push(`${link.id}: ${link.value}`)
+      } else {
+        return;
+      }
+    })
+
+    console.log(mechanics)
+
+
+
     return(
       <main>
       <div className="game--detail--cover">
@@ -71,7 +100,7 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
           <IconStar />
           <IconBookmark />
         </div>
-        <img src={game.image_uri} className="game--detail--image" alt="" />
+        <img src={game.image} className="game--detail--image" alt="" />
         <p className="game--detail--title">{game.name}</p>
       </div>
       <div className="game--detail--summary">
@@ -82,30 +111,31 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
             </div>
             <div className="summary--age">
               <IconMoodKid />
-              <span className="age--text">{game.min_age}</span>
+              <span className="age--text">{game.minage}</span>
             </div>
             <div className="summary--players">
                 <IconUsers /> 
-                <span className="players--text">{game.min_players}-{game.max_players}</span>
+                <span className="players--text">{game.minplayers}-{game.maxplayers}</span>
             </div>
             <div className="summary--playtime">
               <IconHourglass />
-              <span className="playtime--text">{game.min_play_time}-{game.max_play_time}</span>
+              <span className="playtime--text">{game.minplaytime}-{game.maxplaytime}</span>
             </div>
             <div className="summary--weight">
               <IconWeight />
-              <span className="weight--text">{game.stats.avg_weight} </span>
+              <span className="weight--text">{game.statistics.ratings.averageweight} </span>
             </div>
         </div>
         <div className="summary--slider game--detail--categories">
-          {game.categories.map((category) => 
-          <div onClick={() => {props.onClickCategory(category.id)}} key={category.id}>{category.value}</div>
+          {game.links.map((link) =>
+          link.type === "boardgamecategory" ? 
+          <div onClick={() => {props.onClickCategory(link.id)}} key={link.id}>{link.value}</div> : null
           )}
         </div>
         <div className="summary--slider game--detail--mechanics">
-          {game.mechanics.map((mechanic) => 
-          <div onClick={() => {props.onClickMechanic(mechanic.id)}} key={mechanic.id}>{mechanic.value}</div>
-            // <div onClick={props.onClickMechanic(mechanic.id)} key={mechanic.id}>{mechanic.value}</div>
+        {game.links.map((link) =>
+          link.type === "boardgamemechanic" ? 
+          <div onClick={() => {props.onClickCategory(link.id)}} key={link.id}>{link.value}</div> : null
           )}
         </div>
       </div>
