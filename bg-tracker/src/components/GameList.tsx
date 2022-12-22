@@ -24,12 +24,17 @@ const GameList:React.FC<GameListProps> = (props) => {
 //https://crossorigin.me/
   React.useEffect(() => {
     if(props.selectedList){
-      fetch(`https://api.codetabs.com/v1/proxy?quest=https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=${props.selectedList}&objecttype=property&showcount=25&sort=rank&subtype=${props.listType}`)
+      console.log('list type')
+      console.log(props.listType);
+      const objectType = props.listType === "boardgamefamily" ? "family" : "property";
+      console.log(objectType);
+      fetch(`https://api.codetabs.com/v1/proxy?quest=https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=${props.selectedList}&objecttype=${objectType}&showcount=25&sort=rank&subtype=${props.listType}`)
       .then(res => {
         
         if(!res.ok){
           throw new Error(`${res.status}: ${res.statusText}`);
         } else {
+          console.log(res);
           return res.json();
         }
       })
@@ -44,46 +49,7 @@ const GameList:React.FC<GameListProps> = (props) => {
         dispatch(action);
       })
     }
-  }, [props.selectedList])
-
-  
-function testCall(){
-  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=1013&objecttype=property&showcount=25&sort=rank&subtype=boardgamecategory')}`)
-  .then(res => {
-    if(!res.ok){
-      throw new Error(`${res.status}: ${res.statusText}`);
-    } else {
-      return res.json();
-    }
-  })
-  .then((jsonRes) => {
-    const action = getGameListSuccess(Object.values(JSON.parse(jsonRes.contents))[0]);
-    dispatch(action);
-  })
-  .catch((error) => {
-    const action = getGameListFail(error.message);
-    dispatch(action);
-  })
-}
-
-function testCall2(){
-  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=2827&objecttype=property&showcount=25&sort=rank&subtype=boardgamemechanic')}`)
-  .then(res => {
-    if(!res.ok){
-      throw new Error(`${res.status}: ${res.statusText}`);
-    } else {
-      return res.json();
-    }
-  })
-  .then((jsonRes) => {
-    const action = getGameListSuccess(Object.values(JSON.parse(jsonRes.contents))[0]);
-    dispatch(action);
-  })
-  .catch((error) => {
-    const action = getGameListFail(error.message);
-    dispatch(action);
-  })
-}
+  }, [props.selectedList, props.listType])
 
   const {error, isLoaded, gameList} = state;
 
@@ -95,8 +61,6 @@ function testCall2(){
   } else {
     return(
       <div className="game--list">
-        <button onClick={testCall}>click</button>
-        <button onClick={testCall2}>click2</button>
         {gameList.map((game) => 
           <Game thisGame={game} key={game.objectid} onClick={props.onGameClick}/>
         )}

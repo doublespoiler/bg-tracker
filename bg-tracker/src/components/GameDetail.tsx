@@ -11,6 +11,7 @@ interface GameDetailProps{
   onGameClick: Function,
   onClickCategory: Function,
   onClickMechanic: Function,
+  onClickFamily: Function,
 }
 
 const initialGameState = {
@@ -43,6 +44,8 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
   }, [props.selectedGame]);
 
   const {error, isLoaded, game} = state;
+
+  console.log(game.links);
   
   if (error) {
     const tmp = props.selectedGame;
@@ -52,7 +55,6 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
   } else if (!isLoaded) {
     return <p>...Loading...</p> 
   } else {
-
     return(
     <>
       <div className="game--detail--cover" 
@@ -65,7 +67,6 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
       >
         <div className="game--detail--image">
           <div className="cover--buttons">
-            {props.selectedGame}
             <IconStar />
             <IconBookmark />
           </div>
@@ -106,7 +107,13 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
         <div className="summary--slider game--detail--mechanics">
         {game.links.map((link) =>
           link.type === "boardgamemechanic" ? 
-          <div onClick={() => {props.onClickCategory(link.id, "boardgamemechanic")}} key={link.id}>{link.value}</div> : null
+          <div onClick={() => {props.onClickMechanic(link.id, "boardgamemechanic")}} key={link.id}>{link.value}</div> : null
+          )}
+        </div>
+        <div className="summary--slider game--detail--family"> <p></p>
+          {game.links.map((link) =>
+          link.type === "boardgamefamily" ? 
+          <div onClick={() => {props.onClickFamily(link.id, link.type)}} key={link.id}>{link.value}</div> : null
           )}
         </div>
       </div>
