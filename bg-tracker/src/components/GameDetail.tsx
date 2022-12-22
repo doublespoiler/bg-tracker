@@ -12,7 +12,7 @@ interface GameDetailProps{
   selectedGame: string
   onGameClick: Function,
   onClickCategory: Function,
-  onClickMechanic: Function
+  onClickMechanic: Function,
 }
 
 const initialGameState = {
@@ -129,13 +129,13 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
         <div className="summary--slider game--detail--categories">
           {game.links.map((link) =>
           link.type === "boardgamecategory" ? 
-          <div onClick={() => {props.onClickCategory(link.id)}} key={link.id}>{link.value}</div> : null
+          <div onClick={() => {props.onClickCategory(link.id, "boardgamecategory")}} key={link.id}>{link.value}</div> : null
           )}
         </div>
         <div className="summary--slider game--detail--mechanics">
         {game.links.map((link) =>
           link.type === "boardgamemechanic" ? 
-          <div onClick={() => {props.onClickCategory(link.id)}} key={link.id}>{link.value}</div> : null
+          <div onClick={() => {props.onClickCategory(link.id, "boardgamemechanic")}} key={link.id}>{link.value}</div> : null
           )}
         </div>
       </div>

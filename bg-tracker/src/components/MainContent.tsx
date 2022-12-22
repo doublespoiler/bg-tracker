@@ -12,7 +12,7 @@ const MainContent:React.FC<MainContentProps> = (props) => {
   const [mainContent, setMainContent] = React.useState({
     mainContent: "gameList",
     selectedGame: null,
-    selectedList: "linkeditems?linkdata_index=boardgame&objectid=2004&objecttype=property&pageid=1&showcount=25&sort=rank&subtype=boardgamemechanic"
+    selectedList: "2004"
   });
 
   const handleClickGame = (objectId: string) => {
@@ -25,43 +25,45 @@ const MainContent:React.FC<MainContentProps> = (props) => {
     }));
   }
 
-  const handleClickList = (id: string) => {
+  const handleClickList = (id: string, listType: string) => {
     setMainContent(prevMainContent => ({
       ...prevMainContent,
       mainContent: "gameList",
       selectedGame: null,
-      selectedList: `linkeditems?linkdata_index=boardgame&objectid=${id}&objecttype=property&showcount=25&sort=rank&subtype=boardgamecategory` 
+      selectedList: id,
+      listType: listType
     }));
   }
 
-  const handleClickCategory = (id: string) =>{
-    setMainContent(prevMainContent => ({
-      ...prevMainContent,
-      mainContent: "gameList",
-      selectedGame: null,
-      selectedList: `linkeditems?linkdata_index=boardgame&objectid=${id}&objecttype=property&showcount=25&sort=rank&subtype=boardgamecollection`
-    }));
-  }
-  const handleClickMechanic = (id: string) =>{
-    setMainContent(prevMainContent => ({
-      ...prevMainContent,
-      mainContent: "gameList",
-      selectedGame: null,
-      selectedList: `linkeditems?linkdata_index=boardgame&objectid=${id}&objecttype=property&showcount=25&sort=rank&subtype=boardgamemechanic`
-    }));
-  }
+  // const handleClickCategory = (id: string) =>{
+  //   setMainContent(prevMainContent => ({
+  //     ...prevMainContent,
+  //     mainContent: "gameList",
+  //     selectedGame: null,
+  //     selectedList: `${id}`,
+  //     listType: `boardgamecategory`
+  //   }));
+  // }
+  // const handleClickMechanic = (id: string) =>{
+  //   setMainContent(prevMainContent => ({
+  //     ...prevMainContent,
+  //     mainContent: "gameList",
+  //     selectedGame: null,
+  //     selectedList: `${id}&objecttype=property&showcount=25&sort=rank&subtype=boardgamemechanic`
+  //   }));
+  // }
 
   if(mainContent.mainContent === "gameDetail"){
     return(
       <main>
-        <GameDetail selectedGame={mainContent.selectedGame} onGameClick={handleClickGame} onClickMechanic={handleClickMechanic} onClickCategory={handleClickCategory}/>
+        <GameDetail selectedGame={mainContent.selectedGame} onGameClick={handleClickGame} onClickMechanic={handleClickList} onClickCategory={handleClickList}/>
       </main>
     )
   }
   if(mainContent.mainContent === "gameList"){
     return(
       <main>
-        <GameList selectedList={mainContent.selectedList} onGameClick={handleClickGame} />
+        <GameList selectedList={mainContent.selectedList} onGameClick={handleClickGame} listType="boardgamemechanic"/>
       </main>
     )
   }

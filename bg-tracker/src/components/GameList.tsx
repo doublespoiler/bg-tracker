@@ -7,11 +7,13 @@ import Game from "./Game";
 interface GameListProps{
   selectedList: string,
   onGameClick: Function
+  listType: string
 }
 
 const initialState = {
   isLoaded: false,
   gameList: [],
+  listType: null,
   error: null
 };
 
@@ -22,7 +24,7 @@ const GameList:React.FC<GameListProps> = (props) => {
 //https://crossorigin.me/
   React.useEffect(() => {
     if(props.selectedList){
-      fetch(`https://api.codetabs.com/v1/proxy?quest=https://api.geekdo.com/api/geekitem/${props.selectedList}`)
+      fetch(`https://api.codetabs.com/v1/proxy?quest=https://api.geekdo.com/api/geekitem/linkeditems?linkdata_index=boardgame&objectid=${props.selectedList}&objecttype=property&showcount=25&sort=rank&subtype=${props.listType}`)
       .then(res => {
         
         if(!res.ok){
