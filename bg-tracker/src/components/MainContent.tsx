@@ -35,24 +35,6 @@ const MainContent:React.FC<MainContentProps> = (props) => {
     }));
   }
 
-  // const handleClickCategory = (id: string) =>{
-  //   setMainContent(prevMainContent => ({
-  //     ...prevMainContent,
-  //     mainContent: "gameList",
-  //     selectedGame: null,
-  //     selectedList: `${id}`,
-  //     listType: `boardgamecategory`
-  //   }));
-  // }
-  // const handleClickMechanic = (id: string) =>{
-  //   setMainContent(prevMainContent => ({
-  //     ...prevMainContent,
-  //     mainContent: "gameList",
-  //     selectedGame: null,
-  //     selectedList: `${id}&objecttype=property&showcount=25&sort=rank&subtype=boardgamemechanic`
-  //   }));
-  // }
-
   if(mainContent.mainContent === "gameDetail"){
     return(
       <main>
@@ -67,14 +49,6 @@ const MainContent:React.FC<MainContentProps> = (props) => {
       </main>
     )
   }
-  // return(
-  //   // <main>
-  //   //   <GameDetail selectedGame='145659' onGameClick={handleClickGame} onListClick={handleClickList}/>
-  //   // </main>
-  //   // <main>
-  //   //   <GameList selectedList={mainContent.selectedList} onGameClick={handleClickGame} />
-  //   // </main>
-  // )
 }
 
 export default MainContent;

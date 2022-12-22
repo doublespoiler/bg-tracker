@@ -85,23 +85,31 @@ main{
   text-align: center;
   display: flex;
   flex-direction: column;
-  .game--detail--title{
-    font-size: 2rem;
+  width: 100%;
+  .game--detail--image{
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    .cover--buttons{
+      align-self: end;
+      float: right;
+      position: absolute;
+      margin: 0.5rem;
+    }
   }
-  .cover--buttons{
-    align-self: end;
-    float: right;
-    position: absolute;
-    margin: 0.5rem;
+  img{
+    max-height: 33vh;
+    margin: auto;
   }
 }
 
 .game--detail--summary{
   width: 90%;
   margin-left: 0;
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr;
-  // grid-template-rows: 1fr 1fr;
+}
+.game--detail--title{
+  font-size: 2rem;
+  text-align: center;
 }
 
 .summary--slider {
@@ -119,27 +127,12 @@ main{
   justify-content: space-evenly;
   div{
     display: flex;
-    // justify-content: center;
-    // width: fit-content;
   }
 }
 
 .game--detail--description{
   padding: 0 1rem;
 }
-
-// .summary--line{
-//   display: flex;
-//   justify-content: space-around;
-
-//   div{
-//     display: flex;
-//     width: 100%;
-//     div{
-//       width: fit-content;
-//     }
-//   }
-// }
 
 .game--list{
   display: flex;
