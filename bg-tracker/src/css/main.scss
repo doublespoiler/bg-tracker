@@ -62,9 +62,6 @@ main{
   justify-content: space-around;
 }
 
-//moved default Tabler icon properties styling to CSS
-//make sure you remove them from the svg tag itself
-//will probably pull them out of here later and use props instead for theming
 .icon-tabler {
   stroke: $primary-color;
   fill: none;
@@ -140,22 +137,55 @@ main{
   width: 80%;
   .game--list--game {
     display: flex;
-    .game--list--game--thumb{
-      width: 8rem;
-      height: 8rem;
-      img{
-        width: 8rem;
-        height: 8rem;
-        object-fit: contain;
+    .game--list--content{
+      display: flex;
+      backdrop-filter: blur(5px) saturate(50%);
+      padding: 0.25rem;
+      width: 100%;
+      text-align: center;
+      .game--list--game--thumb{
+        min-width: 8rem;
+        min-height: 8rem;
+        img{
+          width: 8rem;
+          height: 8rem;
+          object-fit: contain;
+        }
+      }
+      .game--list--details{
+        width: 100%;
+        backdrop-filter: brightness(40%);
+        border-radius: 5px;
+        margin-left: 0.25rem;
+        padding: 0.5rem;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow:hidden;
+        text-overflow: clip;
+        max-height: 8rem;
+        .foo{
+          .game--list--details--title{
+            font-size: 2rem;
+            text-align: start;
+          }
+        }
+        
+        .game--list--details--weight{
+          justify-self: end;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          svg{
+            stroke: white;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+        }
       }
     }
-  }
-  .game--list--details{
-    padding: 0.5rem;
-  }
-  .game--list--game--title{
-    font-weight: bold;
-    font-size: larger;
   }
 }
 

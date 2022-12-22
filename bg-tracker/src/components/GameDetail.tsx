@@ -55,21 +55,21 @@ const GameDetail:React.FC<GameDetailProps> = (props) => {
 
     return(
     <>
-      <div className="game--detail--cover" style={{
-        backgroundImage: `url("${game.image}")`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-        }}>
-        
+      <div className="game--detail--cover" 
+        style={{
+          backgroundImage: `url("${game.image}")`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="game--detail--image">
-        
-          <img src={game.image} alt="" />
           <div className="cover--buttons">
-          {props.selectedGame}
-          <IconStar />
-          <IconBookmark />
-        </div>
+            {props.selectedGame}
+            <IconStar />
+            <IconBookmark />
+          </div>
+          <img src={game.image} alt="" />
         </div>
       </div>
       <div className="game--detail--summary" style={{
