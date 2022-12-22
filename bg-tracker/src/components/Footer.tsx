@@ -1,14 +1,18 @@
 import React from 'react';
-import Menu from './Menu';
 import { IconUsers, IconHome, IconSearch} from '@tabler/icons';
 
+interface FooterProps{
+  onClickSearch: Function
+}
 
-const Footer:React.FC = () =>{
+const Footer:React.FC<FooterProps> = (props) =>{
+  //test
+
   return(
     <footer>
       <IconHome/>
       <IconUsers/>
-      <IconSearch />
+      <IconSearch onClick={() => props.onClickSearch()}/>
     </footer>
   );
 }

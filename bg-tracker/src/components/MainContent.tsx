@@ -5,7 +5,7 @@ import GameList from './GameList';
 
 
 interface MainContentProps{
-  
+  count: number
 }
 
 const MainContent:React.FC<MainContentProps> = (props) => {
@@ -27,8 +27,6 @@ const MainContent:React.FC<MainContentProps> = (props) => {
   }
 
   const handleClickList = (id: string, listType: string) => {
-    console.log(listType);
-    console.log('list type');
     setMainContent(prevMainContent => ({
       ...prevMainContent,
       mainContent: "gameList",
@@ -38,8 +36,20 @@ const MainContent:React.FC<MainContentProps> = (props) => {
     }));
   }
 
-  const handleSearch = () => {
+  React.useEffect(() => {
+    if(props.count !== 0){
+      console.log("search clicked");
+    }
+  }, [props.count])
 
+  const handleSearchClick = () => {
+    setMainContent(prevMainContent => ({
+      ...prevMainContent,
+      mainContent: "search",
+      selectedGame: null,
+      selectedList: null,
+      listType: null
+    }));
   }
 
   if(mainContent.mainContent === "gameDetail"){
@@ -56,11 +66,11 @@ const MainContent:React.FC<MainContentProps> = (props) => {
       </main>
     )
   }
-  if(mainContent.mainContent === "search"){
-    return(
-      <SearchForm />
-    )
-  }
+  // if(mainContent.mainContent === "search"){
+  //   return(
+  //     <SearchForm />
+  //   )
+  // }
 }
 
 export default MainContent;
