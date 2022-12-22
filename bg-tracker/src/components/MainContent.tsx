@@ -35,6 +35,10 @@ const MainContent:React.FC<MainContentProps> = (props) => {
     }));
   }
 
+  const handleSearch = () => {
+
+  }
+
   if(mainContent.mainContent === "gameDetail"){
     return(
       <main>
@@ -47,6 +51,11 @@ const MainContent:React.FC<MainContentProps> = (props) => {
       <main>
         <GameList selectedList={mainContent.selectedList} onGameClick={handleClickGame} listType="boardgamemechanic"/>
       </main>
+    )
+  }
+  if(mainContent.mainContent === "search"){
+    return(
+      <SearchForm />
     )
   }
 }
