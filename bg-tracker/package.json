@@ -10,6 +10,7 @@
     "dev": "parcel serve src/index.html --open",
     "build": "parcel build src/index.html --out-dir build/release --public-url ./"
   },
+  "proxy":"https://api.geekdo.com/",
   "dependencies": {
     "@tabler/icons": "^1.116.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -17,15 +18,13 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
-    "bgg-api-to-json": "^1.1.8",
-    "cors-anywhere": "^0.4.4",
+    "boardgamegeekclient": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-slider": "^2.0.4",
     "react-spring": "^9.5.5",
-    "web-vitals": "^2.1.4",
-    "xml2js": "^0.4.23"
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.0",
