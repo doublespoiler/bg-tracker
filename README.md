@@ -23,11 +23,17 @@
 - SASS/CSS
 - HTML
 - Parcel
-- allOrigins
+- [boardgamegeekclient](https://www.npmjs.com/package/boardgamegeekclient)
 
 ## Description
 
-An application for tracking personal board game collections, with BGAtlas API integration for board game information.
+An application for (soon) tracking board games.
+
+Currently gets games and linked item lists (categories, mechanics, family), and information from BoardGameGeek.
+
+Allows the user to search for a game by name, which returns a list, and can view details for any of the games on the list, both using the official XML API 2. The user may also access linked item lists for category, mechanics, and family, the call for which is made to BGG's internal API.
+
+Fetches from BGG XML API2, and BGG's internal API, for demonstration purposes only.
 
 ## Setup/Installation
 
@@ -59,8 +65,21 @@ An application for tracking personal board game collections, with BGAtlas API in
 
 ## Known Bugs
 
-- _Any known issues_
-- _should go here_
+- Need error handling for failed some API calls
+- Uses BGG's internal API, which probably shouldn't happen.
+
+## TODO
+
+- Get images for search results
+- Paginate lists
+- Add more search functionality
+- Animations
+- Add user collection tracking
+- Add user plays tracking
+  - Calendar view
+  - Add players
+  - Save scores
+- Add game score trackers
 
 ## License
 
